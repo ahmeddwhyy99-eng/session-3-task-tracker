@@ -1,0 +1,327 @@
+.app-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 56px 24px;
+  isolation: isolate;
+}
+
+.background-orb {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.background-orb--top {
+  width: 360px;
+  height: 360px;
+  top: -170px;
+  right: -100px;
+  background: rgba(255, 180, 113, 0.34);
+}
+
+.background-orb--bottom {
+  width: 440px;
+  height: 440px;
+  bottom: -230px;
+  left: -160px;
+  background: rgba(116, 124, 255, 0.2);
+}
+
+.task-manager {
+  width: min(100%, 720px);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 30px 80px rgba(50, 43, 89, 0.16);
+  backdrop-filter: blur(20px);
+}
+
+.app-header {
+  padding: 40px 44px 32px;
+  color: #fff;
+  background: radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.18), transparent 28%), linear-gradient(135deg, #5c52d6 0%, #7468ed 55%, #8d79ee 100%);
+}
+
+.app-header__intro { display: flex; align-items: center; gap: 18px; }
+
+.brand-mark {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.24);
+}
+
+.brand-mark svg {
+  width: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.header-copy { margin: 7px 0 0; color: rgba(255, 255, 255, 0.82); font-size: 0.92rem; }
+.progress-summary { margin-top: 30px; }
+
+.progress-summary__labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+}
+
+.progress-summary__labels strong { color: #fff; font-weight: 700; }
+.progress-track { height: 7px; overflow: hidden; border-radius: 999px; background: rgba(31, 23, 91, 0.25); }
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ffc97f, #ffe1ab);
+  box-shadow: 0 0 18px rgba(255, 216, 155, 0.7);
+  transition: width 240ms ease;
+}
+
+.task-manager__body { padding: 34px 44px 42px; }
+.task-form { display: flex; gap: 12px; }
+.task-form__control { position: relative; min-width: 0; flex: 1; }
+
+.task-form__icon {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  width: 22px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: #9b98ae;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.task-form input {
+  width: 100%;
+  height: 56px;
+  padding: 0 18px 0 50px;
+  border: 1px solid #e7e5ef;
+  border-radius: 16px;
+  outline: none;
+  color: #2c2940;
+  background: #faf9fd;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.task-form input::placeholder { color: #a6a2b3; }
+.task-form input:focus { border-color: #7569e5; background: #fff; box-shadow: 0 0 0 4px rgba(117, 105, 229, 0.12); }
+
+.task-form button {
+  min-width: 128px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  background: #5f55d8;
+  box-shadow: 0 10px 24px rgba(95, 85, 216, 0.24);
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.task-form button:hover { transform: translateY(-1px); background: #5147c5; box-shadow: 0 13px 28px rgba(95, 85, 216, 0.3); }
+.task-form button:active { transform: translateY(0); }
+
+.task-form button svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.task-list { margin-top: 34px; }
+.task-list__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+
+.task-list h2, .empty-state h2 {
+  margin: 0;
+  color: #343047;
+  font-size: 1rem;
+  font-weight: 780;
+  letter-spacing: -0.01em;
+}
+
+.task-count { padding: 6px 10px; border-radius: 999px; color: #6d66b7; background: #efedff; font-size: 0.7rem; font-weight: 750; }
+.task-list__items { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+
+.task-item {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px 0 17px;
+  border: 1px solid #ebe9f1;
+  border-radius: 17px;
+  background: #fff;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.task-item:hover { transform: translateY(-1px); border-color: #dcd8ea; box-shadow: 0 8px 22px rgba(60, 53, 94, 0.07); }
+.task-item__check { min-width: 0; flex: 1; display: flex; align-items: center; gap: 13px; cursor: pointer; }
+
+.task-item__check input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.checkbox-mark {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 2px solid #d7d3e4;
+  border-radius: 8px;
+  color: #fff;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.checkbox-mark svg {
+  width: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(0.65);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.task-item__check input:focus-visible + .checkbox-mark { outline: 3px solid rgba(117, 105, 229, 0.22); outline-offset: 2px; }
+.task-item__check input:checked + .checkbox-mark { border-color: #6d61de; background: #6d61de; }
+.task-item__check input:checked + .checkbox-mark svg { opacity: 1; transform: scale(1); }
+
+.task-item__title {
+  overflow: hidden;
+  color: #48445a;
+  font-size: 0.92rem;
+  font-weight: 590;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.task-item--completed { background: #faf9fc; }
+.task-item--completed .task-item__title { color: #9995a6; text-decoration: line-through; text-decoration-thickness: 1.5px; }
+
+.delete-button {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 11px;
+  color: #aaa6b5;
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.delete-button:hover { color: #d55267; background: #fff0f2; }
+.delete-button:focus-visible, .task-form button:focus-visible { outline: 3px solid rgba(117, 105, 229, 0.25); outline-offset: 2px; }
+
+.delete-button svg {
+  width: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.empty-state { display: grid; place-items: center; padding: 60px 20px 40px; text-align: center; }
+
+.empty-state__icon {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 21px;
+  color: #6d61de;
+  background: #efedff;
+}
+
+.empty-state__icon svg { width: 32px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.empty-state p { margin: 8px 0 0; color: #918d9d; font-size: 0.86rem; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .app-shell { padding: 20px 14px; place-items: start center; }
+  .task-manager { border-radius: 24px; }
+  .app-header { padding: 30px 24px 26px; }
+  .brand-mark { width: 50px; height: 50px; border-radius: 16px; }
+  .header-copy, .progress-summary__labels span { display: none; }
+  .progress-summary { margin-top: 24px; }
+  .progress-summary__labels { justify-content: flex-end; }
+  .task-manager__body { padding: 26px 20px 30px; }
+  .task-form { flex-direction: column; }
+  .task-form button { height: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
